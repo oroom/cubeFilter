@@ -18,24 +18,3 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(Store())
     }
 }
-
-struct Sidebar: View {
-    @EnvironmentObject var store: Store
-    
-    @SceneStorage("expansionState") var expensionState = ExpansionState()
-    
-    @Binding var selectedFilter: Filter.ID?
-    
-    var body: some View {
-        List {
-            DisclosureGroup(isExpanded: $expensionState["filters"]) {
-                ForEach(store.filters) { filter in
-                    Label(filter.name, systemImage: "cube")
-                }
-            } label: {
-                Label("Filters", systemImage: "camera.filters")
-            }
-        }
-        .frame(minWidth: 200)
-    }
-}

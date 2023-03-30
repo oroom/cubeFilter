@@ -7,7 +7,7 @@ class Store: ObservableObject {
     @Published var mode: ImageDetail.ViewMode = .input
 
     init() {
-        filters = [.init(id: "test", name: "test")]
+        filters = []
     }
 
     subscript(filterID: Filter.ID?) -> Filter? {
@@ -20,7 +20,12 @@ class Store: ObservableObject {
 
         set(newValue) {
             if let id = filterID, let newValue {
-                filters[filters.firstIndex(where: { $0.id == id })!] = newValue
+                if let index = filters.firstIndex(where: { $0.id == id }) {
+                    filters[index] = newValue
+                }
+                else {
+                    filters.append(newValue)
+                }
             }
         }
     }

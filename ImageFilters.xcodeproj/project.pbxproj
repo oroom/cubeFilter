@@ -20,6 +20,7 @@
 		D314367429D620C9004BBE7B /* ExpansionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314367329D620C9004BBE7B /* ExpansionState.swift */; };
 		D314367629D627BA004BBE7B /* DisplayModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314367529D627BA004BBE7B /* DisplayModePicker.swift */; };
 		D314367929D6331B004BBE7B /* FilePanels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314367829D6331B004BBE7B /* FilePanels.swift */; };
+		D314367B29D6383C004BBE7B /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314367A29D6383C004BBE7B /* Sidebar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		D314367329D620C9004BBE7B /* ExpansionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpansionState.swift; sourceTree = "<group>"; };
 		D314367529D627BA004BBE7B /* DisplayModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModePicker.swift; sourceTree = "<group>"; };
 		D314367829D6331B004BBE7B /* FilePanels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePanels.swift; sourceTree = "<group>"; };
+		D314367A29D6383C004BBE7B /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				D314364129D617F3004BBE7B /* ContentView.swift */,
 				D314366E29D619D6004BBE7B /* ImageDetail.swift */,
 				D314367529D627BA004BBE7B /* DisplayModePicker.swift */,
+				D314367A29D6383C004BBE7B /* Sidebar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				D314364029D617F3004BBE7B /* ImageFiltersApp.swift in Sources */,
 				D314367629D627BA004BBE7B /* DisplayModePicker.swift in Sources */,
 				D314367929D6331B004BBE7B /* FilePanels.swift in Sources */,
+				D314367B29D6383C004BBE7B /* Sidebar.swift in Sources */,
 				D314367429D620C9004BBE7B /* ExpansionState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
