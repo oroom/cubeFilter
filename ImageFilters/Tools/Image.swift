@@ -14,6 +14,11 @@ final class FilteredImage {
         resultingImage.asNSImage()
     }
     
+    init(ciImage: CIImage) {
+        originalImage = ciImage
+        resultingImage = ciImage
+    }
+    
     init?(url: URL) {
         guard let originalCIImage = CIImage(contentsOf: url) else {
             return nil

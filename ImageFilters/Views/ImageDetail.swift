@@ -37,6 +37,9 @@ struct ImageDetail: View {
         }
         .toolbar {
             DisplayModePicker(mode: $mode)
+            Button(action: startVideo) {
+                Label("Camera", systemImage: "camera.aperture")
+            }
             Button(action: openImage) {
                 Label("Open image", systemImage: "plus")
             }
@@ -60,6 +63,10 @@ extension ImageDetail {
         if let imageUrl = showSavePanel() {
             store.saveImage(url: imageUrl)
         }
+    }
+    
+    func startVideo() {
+        store.startVideo()
     }
 }
 

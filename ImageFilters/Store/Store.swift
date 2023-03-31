@@ -5,8 +5,12 @@ class Store: ObservableObject {
     @Published var filters: [Filter] = []
     @Published var selectedFilter: Filter.ID?
     @Published var mode: ImageDetail.ViewMode = .input
+    lazy var videoService = VideoService { videoFrame in
+        self.image = videoFrame
+    }
     private var loadedFilter: ImageFilter = NoOp() {
         didSet {
+            videoService.filters = [loadedFilter]
             updateImage()
         }
     }
@@ -51,7 +55,11 @@ class Store: ObservableObject {
     }
     
     func saveImage(url: URL) {
-        image?.output.write(to: url)
+        _ = image?.output.write(to: url)
+    }
+    
+    func startVideo() {
+        videoService.start()
     }
     
     private func updateImage() {
