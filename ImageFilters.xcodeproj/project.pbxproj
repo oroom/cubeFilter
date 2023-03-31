@@ -21,6 +21,8 @@
 		D314367629D627BA004BBE7B /* DisplayModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314367529D627BA004BBE7B /* DisplayModePicker.swift */; };
 		D314367929D6331B004BBE7B /* FilePanels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314367829D6331B004BBE7B /* FilePanels.swift */; };
 		D314367B29D6383C004BBE7B /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314367A29D6383C004BBE7B /* Sidebar.swift */; };
+		D314367D29D63CAE004BBE7B /* LUTFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314367C29D63CAE004BBE7B /* LUTFilter.swift */; };
+		D314367F29D66430004BBE7B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314367E29D66430004BBE7B /* Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		D314367529D627BA004BBE7B /* DisplayModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModePicker.swift; sourceTree = "<group>"; };
 		D314367829D6331B004BBE7B /* FilePanels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePanels.swift; sourceTree = "<group>"; };
 		D314367A29D6383C004BBE7B /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		D314367C29D63CAE004BBE7B /* LUTFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUTFilter.swift; sourceTree = "<group>"; };
+		D314367E29D66430004BBE7B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				D314367829D6331B004BBE7B /* FilePanels.swift */,
+				D314367C29D63CAE004BBE7B /* LUTFilter.swift */,
+				D314367E29D66430004BBE7B /* Image.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -313,10 +319,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D314366C29D6184A004BBE7B /* Store.swift in Sources */,
+				D314367F29D66430004BBE7B /* Image.swift in Sources */,
 				D314367129D61A1E004BBE7B /* Filter.swift in Sources */,
 				D314364229D617F3004BBE7B /* ContentView.swift in Sources */,
 				D314366F29D619D6004BBE7B /* ImageDetail.swift in Sources */,
 				D314364029D617F3004BBE7B /* ImageFiltersApp.swift in Sources */,
+				D314367D29D63CAE004BBE7B /* LUTFilter.swift in Sources */,
 				D314367629D627BA004BBE7B /* DisplayModePicker.swift in Sources */,
 				D314367929D6331B004BBE7B /* FilePanels.swift in Sources */,
 				D314367B29D6383C004BBE7B /* Sidebar.swift in Sources */,

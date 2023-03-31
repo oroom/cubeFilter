@@ -15,7 +15,7 @@ struct Sidebar: View {
     @Binding var selectedFilter: Filter.ID?
     
     var body: some View {
-        List {
+        List(selection: $selectedFilter) {
             DisclosureGroup(isExpanded: $expensionState["filters"]) {
                 ForEach(store.filters) { filter in
                     Label(filter.name, systemImage: "cube")
@@ -37,7 +37,7 @@ extension Sidebar {
 
     func addFilter() {
         if let filterUrl = showOpenPanel() {
-            store[filterUrl.lastPathComponent] = .init(id: filterUrl.lastPathComponent, name: filterUrl.lastPathComponent)
+            store[filterUrl.lastPathComponent] = .init(url: filterUrl)
         }
     }
 }

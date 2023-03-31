@@ -1,10 +1,15 @@
 import Foundation
 
 class Store: ObservableObject {
-    @Published var image: URL?
+    @Published var image: FilteredImage?
     @Published var filters: [Filter] = []
     @Published var selectedFilter: Filter.ID?
     @Published var mode: ImageDetail.ViewMode = .input
+    private var loadedFilter: ImageFilter = NoOp() {
+        didSet {
+            updateImage()
+        }
+    }
 
     init() {
         filters = []
@@ -29,8 +34,23 @@ class Store: ObservableObject {
             }
         }
     }
+    
+    func filterSelected(_ id: Filter.ID?) {
+        if let filter = self[id], let lutFilter = LUTFilter(from: filter) {
+            loadedFilter = lutFilter
+        }
+    }
 
     func append(_ filter: Filter) {
         filters.append(filter)
+    }
+    
+    func processImage(url: URL) {
+        image = FilteredImage(url: url)
+        updateImage()
+    }
+    
+    private func updateImage() {
+        image?.applyFilters([loadedFilter])
     }
 }

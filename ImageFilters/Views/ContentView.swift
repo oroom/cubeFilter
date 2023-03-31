@@ -1,14 +1,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @SceneStorage("selectedFilter") var selectedFilter: Filter.ID?
+    @EnvironmentObject var store: Store
+    @SceneStorage("selectedFilter") var selectedFilterID: Filter.ID?
     
     var body: some View {
         NavigationView {
-            Sidebar(selectedFilter: $selectedFilter)
-            ImageDetail(selectedFilter: $selectedFilter)
+            Sidebar(selectedFilter: selection)
+            ImageDetail()
         }
+    }
+    
+    private var selection: Binding<Filter.ID?> {
+        Binding(get: {
+            selectedFilterID
+        }, set: {
+            selectedFilterID = $0
+            store.filterSelected($0)
+        })
+    }
+    
+    private var selectedFilter: Binding<Filter?> {
+        $store[selection.wrappedValue]
     }
 }
 

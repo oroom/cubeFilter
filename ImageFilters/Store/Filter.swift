@@ -1,6 +1,11 @@
 import Foundation
 
 struct Filter: Identifiable, Codable {
-    var id: String
-    let name: String
+    let url: URL
+    var id: String {
+        url.lastPathComponent
+    }
+    var name: String {
+        url.deletingPathExtension().lastPathComponent
+    }
 }

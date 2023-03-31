@@ -10,15 +10,27 @@ struct ImageDetail: View {
     }
     
     @EnvironmentObject var store: Store
-    @Binding var selectedFilter: Filter.ID?
     @SceneStorage("viewMode") private var mode: ViewMode = .input
     
     var body: some View {
         Group {
-            if let url = store.image {
-                Image(nsImage: NSImage(byReferencing: url))
+            if let image = store.image, mode == .input {
+                Image(nsImage: image.input)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+            } else if let image = store.image, mode == .output {
+                Image(nsImage: image.output)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            } else if let image = store.image, mode == .pair {
+                HStack {
+                    Image(nsImage: image.input)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    Image(nsImage: image.output)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
             } else {
                 Text("Add input source")
             }
@@ -29,7 +41,6 @@ struct ImageDetail: View {
                 Label("Open image", systemImage: "plus")
             }
         }
-        .frame(width: 500, height: 500)
         .navigationTitle("Image url")
     }
 }
@@ -38,14 +49,14 @@ extension ImageDetail {
 
     func openImage() {
         if let imageUrl = showOpenPanel() {
-            store.image = imageUrl
+            store.processImage(url: imageUrl)
         }
     }
 }
 
 struct ImageDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ImageDetail(selectedFilter: .constant(nil))
+        ImageDetail()
             .environmentObject(Store())
     }
 }
