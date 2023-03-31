@@ -47,3 +47,29 @@ extension CIImage {
       return updateImage
    }
 }
+
+extension NSImage {
+    private func data(using fileType: NSBitmapImageRep.FileType) -> Data? {
+        guard let tiffRepresentation = tiffRepresentation, let bitmapImage = NSBitmapImageRep(data: tiffRepresentation) else { return nil }
+        return bitmapImage.representation(using: fileType, properties: [:])
+    }
+    
+    func write(to url: URL, options: Data.WritingOptions = .atomic) -> Bool {
+        var data: Data?
+        switch url.pathExtension {
+        case "png":
+            data = self.data(using: .png)
+        case "jpg", "jpeg":
+            data = self.data(using: .jpeg)
+        default:
+            break
+        }
+        do {
+            try data?.write(to: url, options: options)
+            return true
+        } catch {
+            print(error)
+            return false
+        }
+    }
+}

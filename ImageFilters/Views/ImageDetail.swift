@@ -40,6 +40,9 @@ struct ImageDetail: View {
             Button(action: openImage) {
                 Label("Open image", systemImage: "plus")
             }
+            Button(action: saveImage) {
+                Label("Save image", systemImage: "square.and.arrow.down.fill")
+            }
         }
         .navigationTitle("Image url")
     }
@@ -50,6 +53,12 @@ extension ImageDetail {
     func openImage() {
         if let imageUrl = showOpenPanel() {
             store.processImage(url: imageUrl)
+        }
+    }
+    
+    func saveImage() {
+        if let imageUrl = showSavePanel() {
+            store.saveImage(url: imageUrl)
         }
     }
 }

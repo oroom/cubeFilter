@@ -50,6 +50,10 @@ class Store: ObservableObject {
         updateImage()
     }
     
+    func saveImage(url: URL) {
+        image?.output.write(to: url)
+    }
+    
     private func updateImage() {
         image?.applyFilters([loadedFilter])
     }
