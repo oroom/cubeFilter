@@ -37,7 +37,7 @@ struct ImageDetail: View {
         }
         .toolbar {
             DisplayModePicker(mode: $mode)
-            Button(action: startVideo) {
+            Button(action: toggleVideo) {
                 Label("Camera", systemImage: "camera.aperture")
             }
             Button(action: openImage) {
@@ -65,8 +65,8 @@ extension ImageDetail {
         }
     }
     
-    func startVideo() {
-        store.startVideo()
+    func toggleVideo() {
+        store.toggleVideo()
     }
 }
 

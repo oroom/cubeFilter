@@ -12,7 +12,15 @@ final class VideoService: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate
         self.update = update
     }
     
-    func start() {
+    func stop() {
+        session?.stopRunning()
+    }
+    
+    func toggleVideo() {
+        if let session, session.isRunning {
+            stop()
+            return
+        }
         AVCaptureDevice.requestAccess(for: .video) { granted in
             if granted {
                 // Find the default video device
@@ -52,7 +60,9 @@ final class VideoService: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate
         let image = FilteredImage(ciImage: cameraImage)
         image.applyFilters(filters)
         DispatchQueue.main.async { [weak self] in
-            self?.update(image)
+            if self?.session?.isRunning ?? false {
+                self?.update(image)
+            }
         }
     }
 }

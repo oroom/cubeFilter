@@ -50,16 +50,17 @@ class Store: ObservableObject {
     }
     
     func processImage(url: URL) {
+        videoService.stop()
         image = FilteredImage(url: url)
         updateImage()
     }
     
     func saveImage(url: URL) {
-        _ = image?.output.write(to: url)
+        _ = image?.output?.write(to: url)
     }
     
-    func startVideo() {
-        videoService.start()
+    func toggleVideo() {
+        videoService.toggleVideo()
     }
     
     private func updateImage() {

@@ -6,13 +6,8 @@ final class FilteredImage {
     private let originalImage: CIImage
     private var resultingImage: CIImage
     
-    var input: NSImage {
-        originalImage.asNSImage()
-    }
-    
-    var output: NSImage {
-        resultingImage.asNSImage()
-    }
+    var input: NSImage!
+    var output: NSImage!
     
     init(ciImage: CIImage) {
         originalImage = ciImage
@@ -29,6 +24,8 @@ final class FilteredImage {
     
     func applyFilters(_ filters: [ImageFilter]) {
         resultingImage = filters.reduce(originalImage) { $1.apply(to: $0) }
+        input = originalImage.asNSImage()
+        output = resultingImage.asNSImage()
     }
 }
 
